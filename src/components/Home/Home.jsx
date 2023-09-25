@@ -4,9 +4,15 @@ import getTrending from 'Services/ApiGet';
 
 const Home = () => {
   useEffect(() => {
-    getTrending()
-      .then(response => console.log(response))
-      .catch(err => console.error(err));
+    const serverRequest = async () => {
+      try {
+        const data = await getTrending();
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    serverRequest();
   }, []);
 
   return <div>response</div>;
