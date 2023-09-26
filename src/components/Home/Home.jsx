@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
 
 // import getTrending from 'Services/ApiGet';
 
@@ -8,6 +7,7 @@ import {
   StyleFilmTitle,
   StyleFilmText,
   StyleFilmItem,
+  StyleFilmLink,
 } from 'components/Home/Home.styled';
 
 const Home = () => {
@@ -42,12 +42,12 @@ const Home = () => {
         {films.map(({ title, id, release_date, vote_average, name }) => {
           return (
             <StyleFilmItem className="gallery-film" key={id}>
-              <Link to="film">
+              <StyleFilmLink to="/movies/:movieId">
                 <StyleFilmTitle>{title}</StyleFilmTitle>
                 <StyleFilmTitle>{name}</StyleFilmTitle>
                 <StyleFilmText>Release date: {release_date}</StyleFilmText>
                 <StyleFilmText>Rating: {vote_average}</StyleFilmText>
-              </Link>
+              </StyleFilmLink>
             </StyleFilmItem>
           );
         })}
