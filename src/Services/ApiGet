@@ -42,7 +42,7 @@
 //   return await fetch(BASE_URL + request, options).then(res => res.json());
 // }
 
-export default async function getTrending() {
+export default function getTrending() {
   const options = {
     method: 'GET',
     headers: {
@@ -51,7 +51,8 @@ export default async function getTrending() {
         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOTdmOWVhMmZjMzRlYjg4M2Q5ZGYyMGNmZTFkOTQyYiIsInN1YiI6IjY1MTFkNGE4ZTFmYWVkMDEzYTBiZWY5MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._FlD5OFNYmt2b9cp7NIwxLnKKey2vygd7hk2J5v3WfA',
     },
   };
-  return await fetch(
+
+  return fetch(
     'https://api.themoviedb.org/3/trending/all/day?language=en-US',
     options
   ).then(response => response.json());
