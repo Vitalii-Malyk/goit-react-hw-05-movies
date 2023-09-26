@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 // import getTrending from 'Services/ApiGet';
 
-import { StyleFilmList } from 'components/Home/Home.styled';
+import {
+  StyleFilmList,
+  StyleFilmTitle,
+  StyleFilmText,
+  StyleFilmItem,
+} from 'components/Home/Home.styled';
 
 const Home = () => {
   const [films, setfilms] = useState([]);
@@ -28,18 +34,21 @@ const Home = () => {
     };
     getTrending();
   }, []);
-
+  console.log(films);
   return (
     <>
-      <h1>films</h1>
+      <h2>Trending today</h2>
       <StyleFilmList>
-        {films.map(({ title, id, release_date, vote_average }) => {
+        {films.map(({ title, id, release_date, vote_average, name }) => {
           return (
-            <li className="gallery-item" key={id}>
-              <h3>{title}</h3>
-              <p>Release date: {release_date}</p>
-              <p>Rating: {vote_average}</p>
-            </li>
+            <StyleFilmItem className="gallery-film" key={id}>
+              <Link to="film">
+                <StyleFilmTitle>{title}</StyleFilmTitle>
+                <StyleFilmTitle>{name}</StyleFilmTitle>
+                <StyleFilmText>Release date: {release_date}</StyleFilmText>
+                <StyleFilmText>Rating: {vote_average}</StyleFilmText>
+              </Link>
+            </StyleFilmItem>
           );
         })}
       </StyleFilmList>

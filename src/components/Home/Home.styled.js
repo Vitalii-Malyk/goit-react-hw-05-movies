@@ -5,6 +5,27 @@ export const StyleFilmList = styled('ul')(() => {
     listStyle: 'none',
     display: 'flex',
     flexDirection: 'column',
+    margin: 0,
+    padding: 0,
+    gap: '15px',
+  };
+});
+
+export const StyleFilmItem = styled('li')(() => {
+  return {
+    width: 'fit-content',
+  };
+});
+
+export const StyleFilmTitle = styled('h4')(() => {
+  return {
+    margin: 0,
+  };
+});
+
+export const StyleFilmText = styled('p')(() => {
+  return {
+    margin: 0,
   };
 });
 
