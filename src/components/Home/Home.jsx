@@ -1,52 +1,38 @@
 import { useEffect, useState } from 'react';
 
-// import getTrending from 'Services/ApiGet';
+import getTrending from '../../services/apiGet';
 
 import {
   StyleFilmList,
   StyleFilmTitle,
-  StyleFilmText,
   StyleFilmItem,
   StyleFilmLink,
 } from 'components/Home/Home.styled';
 
 const Home = () => {
-  const [films, setfilms] = useState([]);
+  const [films, setFilms] = useState([]);
 
   useEffect(() => {
-    const getTrending = () => {
-      const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOTdmOWVhMmZjMzRlYjg4M2Q5ZGYyMGNmZTFkOTQyYiIsInN1YiI6IjY1MTFkNGE4ZTFmYWVkMDEzYTBiZWY5MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._FlD5OFNYmt2b9cp7NIwxLnKKey2vygd7hk2J5v3WfA',
-        },
-      };
-
-      fetch(
-        'https://api.themoviedb.org/3/trending/all/day?language=en-US',
-        options
-      )
-        .then(response => response.json())
-        .then(response => setfilms(response.results))
-        .catch(err => console.error(err));
-    };
-    getTrending();
+    async function getTreningMovies() {
+      try {
+        const movies = await getTrending();
+        setFilms(movies);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getTreningMovies();
   }, []);
-  console.log(films);
+
   return (
     <>
       <h2>Trending today</h2>
-      <StyleFilmList>
-        {films.map(({ title, id, release_date, vote_average, name }) => {
+      <StyleFilmList type="1">
+        {films.map(({ title, id }) => {
           return (
             <StyleFilmItem className="gallery-film" key={id}>
               <StyleFilmLink to="/movies/:movieId">
                 <StyleFilmTitle>{title}</StyleFilmTitle>
-                <StyleFilmTitle>{name}</StyleFilmTitle>
-                <StyleFilmText>Release date: {release_date}</StyleFilmText>
-                <StyleFilmText>Rating: {vote_average}</StyleFilmText>
               </StyleFilmLink>
             </StyleFilmItem>
           );
@@ -55,5 +41,4 @@ const Home = () => {
     </>
   );
 };
-
 export default Home;
