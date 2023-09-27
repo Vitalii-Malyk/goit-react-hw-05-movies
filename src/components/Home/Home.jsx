@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import getTrending from 'services/apiGet';
+import { getTrending } from 'services/apiGet';
 
 import {
   StyleFilmList,
