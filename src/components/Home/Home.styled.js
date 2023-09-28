@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const StyleFilmList = styled('ol')(() => {
+export const StyleFilmList = styled('ul')(() => {
   return {
     display: 'flex',
     flexDirection: 'column',

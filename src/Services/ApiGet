@@ -8,8 +8,10 @@ axios.defaults.params = {
   language: 'en-US',
 };
 
-export const getTrending = async () => {
+const getTrending = async () => {
   const { data } = await axios.get('trending/movie/day', {});
 
   return data.results;
 };
+
+export default getTrending;
