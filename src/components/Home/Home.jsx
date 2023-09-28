@@ -11,7 +11,7 @@ const Home = ({ data }) => {
       {data.map(({ title, id, name }) => {
         return (
           <StyleFilmItem className="gallery-film" key={id}>
-            <StyleFilmLink to="/movies/:movieId">
+            <StyleFilmLink to={`/movies/${id}`}>
               <StyleFilmTitle>{title}</StyleFilmTitle>
               <StyleFilmTitle>{name}</StyleFilmTitle>
             </StyleFilmLink>

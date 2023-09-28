@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Outlet } from 'react-router-dom';
-import MovieDetails from 'components/MovieDetails/MovieDetails';
+import MovieDetails from 'components/MovieDetails/MovieDetails.jsx';
 
 import axios from 'axios';
 
@@ -13,8 +13,8 @@ axios.defaults.params = {
 };
 
 const MovieDetailsPage = () => {
-  const { movieId } = useParams();
   const { movie, setMovie } = useState([]);
+  const { movieId } = useParams('');
 
   useEffect(() => {
     const getMovie = async () => {
