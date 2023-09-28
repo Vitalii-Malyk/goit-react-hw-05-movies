@@ -8,7 +8,7 @@ import {
 const Home = ({ data }) => {
   return (
     <StyleFilmList>
-      {data.map(({ title, id, name }) => {
+      {data.map(({ title, id }) => {
         return (
           <StyleFilmItem className="gallery-film" key={id}>
             <StyleFilmLink to={`/movies/${id}`}>
