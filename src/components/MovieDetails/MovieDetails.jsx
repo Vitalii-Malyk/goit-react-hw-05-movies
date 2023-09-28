@@ -1,10 +1,10 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   WraperStyle,
   ButtonStyle,
 } from 'components/MovieDetails/MovieDetails.styled';
 
-const MovieDetails = data => {
+const MovieDetails = ({ data }) => {
   const { original_title, overview, poster_path } = data;
 
   return (
@@ -23,12 +23,11 @@ const MovieDetails = data => {
       <div>{overview}</div>
       <ul>
         <li>
-          <Link to="cast">Go thr</Link>
+          <Link to="cast">cast</Link>
         </li>
         <li>
-          <Link to="reviews">Go through the reviews</Link>
+          <Link to="reviews">reviews</Link>
         </li>
-        <Outlet />
       </ul>
     </WraperStyle>
   );

@@ -29,7 +29,7 @@ export async function getMovieDetails(movieId) {
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
     options
   );
-  return resp;
+  return resp.data;
 }
 
 export async function getMovieCredits(movieId) {
