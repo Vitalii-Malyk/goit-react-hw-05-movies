@@ -26,25 +26,28 @@ const MovieDetails = ({ data }) => {
           width="200"
         />
         <WraperTextStyle>
-          <h3>
+          <h2>
             {original_title} ({releaseYear})
-          </h3>
+          </h2>
+          <h4>Overview</h4>
           <p>{overview}</p>
+          <h4>Genres</h4>
           {/* <p>
             {genres.map(genre => (
               <span key={genre.id}> {genre.name}</span>
             ))}
           </p> */}
         </WraperTextStyle>
-        <ul>
-          <li>
-            <Link to="cast">cast</Link>
-          </li>
-          <li>
-            <Link to="reviews">reviews</Link>
-          </li>
-        </ul>
       </WraperStyle>
+      <h4>Additional information</h4>
+      <ul>
+        <li>
+          <Link to="cast">cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">reviews</Link>
+        </li>
+      </ul>
     </>
   );
 };
