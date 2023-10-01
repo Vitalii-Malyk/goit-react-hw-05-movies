@@ -1,6 +1,7 @@
-import Muvies from 'components/Movies/Movies';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+
+import Muvies from 'components/Movies/Movies';
 
 const MoviesPage = () => {
   return (

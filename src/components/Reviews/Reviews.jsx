@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { getMovieRewiews } from 'services/apiGet';
+
 import { FilmListRevievs, TextStyle } from 'components/Reviews/Reviews.styled';
 
 const Reviews = () => {

@@ -1,6 +1,8 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useParams, Outlet, NavLink } from 'react-router-dom';
+
 import MovieDetails from 'components/MovieDetails/MovieDetails.jsx';
+
 import { getMovieDetails } from 'services/apiGet';
 
 const MovieDetailsPage = () => {

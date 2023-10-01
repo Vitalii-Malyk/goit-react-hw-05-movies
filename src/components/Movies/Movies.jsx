@@ -1,13 +1,15 @@
 import { useSearchParams } from 'react-router-dom';
+import { useEffect, useCallback, useRef, useState } from 'react';
+
+import { searchMovies } from 'services/apiGet';
+import Home from 'components/FilmList/FilmList';
+
 import {
   SearchBtn,
   SearchContainer,
   SearchForm,
   SearchInput,
 } from 'components/Movies/Movies.styled';
-import { searchMovies } from 'services/apiGet';
-import { useEffect, useCallback, useRef, useState } from 'react';
-import Home from 'components/FilmList/FilmList';
 
 const Movies = () => {
   const [value, setValue] = useState('');
