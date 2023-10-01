@@ -12,7 +12,6 @@ const Home = ({ data }) => {
         return (
           <StyleFilmItem className="gallery-film" key={id}>
             <StyleFilmLink to={`/movies/${id}`}>
-              {' '}
               <StyleFilmTitle>{title}</StyleFilmTitle>
             </StyleFilmLink>
           </StyleFilmItem>

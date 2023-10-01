@@ -24,9 +24,9 @@ const Cast = () => {
 
   return (
     <>
-      {cast && (
-        <FilmListCast>
-          {cast.map(({ id, name, profile_path }) => (
+      <FilmListCast>
+        {cast.map(({ id, name, profile_path }) => {
+          return (
             <li key={id}>
               <img
                 src={
@@ -39,9 +39,9 @@ const Cast = () => {
               />
               <TextStyle>{name}</TextStyle>
             </li>
-          ))}
-        </FilmListCast>
-      )}
+          );
+        })}
+      </FilmListCast>
     </>
   );
 };

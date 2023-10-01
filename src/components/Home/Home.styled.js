@@ -5,7 +5,7 @@ export const StyleFilmList = styled('ul')(() => {
   return {
     display: 'flex',
     flexDirection: 'column',
-    margin: 0,
+    margin: '20px 0 0 0',
     padding: 0,
     gap: '15px',
   };
