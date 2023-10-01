@@ -37,7 +37,7 @@ export async function getMovieCredits(movieId) {
     `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
     options
   );
-  return resp;
+  return resp.data.cast;
 }
 
 export async function getMovieRewiews(movieId) {
@@ -45,5 +45,5 @@ export async function getMovieRewiews(movieId) {
     `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1`,
     options
   );
-  return resp;
+  return resp.data.results;
 }

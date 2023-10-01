@@ -4,7 +4,8 @@ import MovieDetails from 'components/MovieDetails/MovieDetails.jsx';
 import { getMovieDetails } from 'components/services/apiGet';
 
 const MovieDetailsPage = () => {
-  const [film, setFilm] = useState({});
+  const [film, setFilm] = useState('');
+
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <MovieDetails data={film} />
+      {film && <MovieDetails dataFilm={film} />}
       <Outlet />
     </>
   );

@@ -1,42 +1,64 @@
-import { Link } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Suspense, useRef } from 'react';
 import {
   WraperStyle,
-  ButtonStyle,
   WraperTextStyle,
+  TitleStyle,
+  TitleTextStyle,
+  TextStyle,
+  ListStyle,
+  ButtonStyle,
 } from 'components/MovieDetails/MovieDetails.styled';
 
-const MovieDetails = ({ data }) => {
-  const { original_title, overview, poster_path, release_date } = data;
+const MovieDetails = ({ dataFilm }) => {
+  const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? '/');
+  const {
+    genres,
+    original_title,
+    release_date,
+    overview,
+    poster_path,
+    vote_average,
+  } = dataFilm;
   const releaseDate = new Date(release_date);
+  const BASE_URL_IMG = 'https://image.tmdb.org/t/p/w500';
+  const DEFAULT_IMAGE_URL =
+    'https://www.braasco.com//ASSETS/IMAGES/ITEMS/ZOOM/no_image.jpeg';
   const releaseYear = Number.isNaN(releaseDate)
     ? 'Unknown'
     : releaseDate.getFullYear();
+  const userScore = Math.round((Number(vote_average) * 100) / 10);
 
   return (
     <>
-      <ButtonStyle>Go home</ButtonStyle>
+      <ButtonStyle to={backLinkHref.current}>Go home</ButtonStyle>
       <WraperStyle>
         <img
           src={
             poster_path
-              ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : 'https://www.braasco.com//ASSETS/IMAGES/ITEMS/ZOOM/no_image.jpeg'
+              ? `${BASE_URL_IMG}${poster_path}`
+              : `${DEFAULT_IMAGE_URL}`
           }
           alt={original_title}
           width="200"
+          height="300"
         />
         <WraperTextStyle>
-          <h2>
+          <TitleStyle>
             {original_title} ({releaseYear})
-          </h2>
-          <h4>Overview</h4>
-          <p>{overview}</p>
-          <h4>Genres</h4>
-          {/* <p>
-            {genres.map(genre => (
-              <span key={genre.id}> {genre.name}</span>
+          </TitleStyle>
+          <TitleTextStyle>User Score: {userScore}%</TitleTextStyle>
+          <TitleTextStyle>Overview</TitleTextStyle>
+          <TextStyle>{overview}</TextStyle>
+          <TitleTextStyle>Genres</TitleTextStyle>
+          <ListStyle>
+            {genres.map(({ id, name }) => (
+              <li key={id}>
+                <TextStyle>{name}</TextStyle>
+              </li>
             ))}
-          </p> */}
+          </ListStyle>
         </WraperTextStyle>
       </WraperStyle>
       <h4>Additional information</h4>
@@ -48,6 +70,9 @@ const MovieDetails = ({ data }) => {
           <Link to="reviews">reviews</Link>
         </li>
       </ul>
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
