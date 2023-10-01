@@ -3,7 +3,7 @@ import {
   StyleFilmTitle,
   StyleFilmItem,
   StyleFilmLink,
-} from 'components/Home/Home.styled';
+} from 'components/FilmList/FilmList.styled';
 
 const Home = ({ data }) => {
   return (

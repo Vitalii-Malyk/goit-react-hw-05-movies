@@ -1,5 +1,5 @@
-import { Outlet, useLocation, Link } from 'react-router-dom';
-import { Suspense, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useRef } from 'react';
 import {
   WraperStyle,
   WraperTextStyle,
@@ -42,7 +42,6 @@ const MovieDetails = ({ dataFilm }) => {
           }
           alt={original_title}
           width="200"
-          height="300"
         />
         <WraperTextStyle>
           <TitleStyle>
@@ -62,17 +61,6 @@ const MovieDetails = ({ dataFilm }) => {
         </WraperTextStyle>
       </WraperStyle>
       <h4>Additional information</h4>
-      <ul>
-        <li>
-          <Link to="cast">cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">reviews</Link>
-        </li>
-      </ul>
-      <Suspense>
-        <Outlet />
-      </Suspense>
     </>
   );
 };

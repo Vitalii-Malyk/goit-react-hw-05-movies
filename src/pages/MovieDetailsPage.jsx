@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useEffect, useState, Suspense } from 'react';
+import { useParams, Outlet, NavLink } from 'react-router-dom';
 import MovieDetails from 'components/MovieDetails/MovieDetails.jsx';
-import { getMovieDetails } from 'components/services/apiGet';
+import { getMovieDetails } from 'services/apiGet';
 
 const MovieDetailsPage = () => {
   const [film, setFilm] = useState('');
@@ -23,7 +23,17 @@ const MovieDetailsPage = () => {
   return (
     <>
       {film && <MovieDetails dataFilm={film} />}
-      <Outlet />
+      <ul>
+        <li>
+          <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
+        </li>
+        <li>
+          <NavLink to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
+        </li>
+      </ul>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

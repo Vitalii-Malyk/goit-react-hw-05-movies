@@ -5,9 +5,9 @@ import {
   SearchForm,
   SearchInput,
 } from 'components/Movies/Movies.styled';
-import { searchMovies } from 'components/services/apiGet';
+import { searchMovies } from 'services/apiGet';
 import { useEffect, useCallback, useRef, useState } from 'react';
-import Home from 'components/Home/Home';
+import Home from 'components/FilmList/FilmList';
 
 const Movies = () => {
   const [value, setValue] = useState('');
