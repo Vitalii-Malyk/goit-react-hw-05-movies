@@ -21,8 +21,6 @@ const MovieDetailsPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const ref = useRef(location);
-  console.log(ref.current.state);
-  console.log(location);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +36,6 @@ const MovieDetailsPage = () => {
 
   const backLink = () => {
     navigate(location.state) || navigate(ref.current.state);
-    console.log(ref.current.state);
   };
 
   return (
