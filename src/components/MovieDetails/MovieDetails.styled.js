@@ -1,26 +1,9 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const WraperStyle = styled.div`
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
-`;
-
-export const ButtonStyle = styled(Link)`
-  display: block;
-  color: black;
-  padding: 5px;
-  margin-bottom: 20px;
-  width: fit-content;
-  border: 1px solid black;
-  border-radius: 10px;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    color: blueviolet;
-    border-color: blueviolet;
-  }
 `;
 
 export const WraperTextStyle = styled.div`

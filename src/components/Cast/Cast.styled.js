@@ -13,3 +13,9 @@ export const TextStyle = styled.p`
   margin: 0;
   text-align: center;
 `;
+export const WrapperImgStyle = styled.div`
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 300px;
+`;

@@ -7,7 +7,7 @@ const MoviesPage = () => {
   return (
     <>
       <Muvies />
-      <Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
     </>

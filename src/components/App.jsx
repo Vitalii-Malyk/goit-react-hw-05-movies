@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import HomePage from 'pages/HomePage';
 import MoviesPage from 'pages/MoviesPage';
@@ -18,7 +18,7 @@ export const App = () => {
           <Route path="reviews" element={<Reviews />} />
           <Route path="cast" element={<Cast />} />
         </Route>
-        <Route path="*" element={<HomePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   );

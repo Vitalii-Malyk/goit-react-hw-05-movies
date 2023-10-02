@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { getTrending } from 'services/apiGet';
 
-import Home from 'components/FilmList/FilmList';
+import FilmList from 'components/FilmList/FilmList';
 
 const HomePage = () => {
   const [films, setFilms] = useState([]);
@@ -21,7 +21,7 @@ const HomePage = () => {
   return (
     <>
       <h2>Trending today</h2>
-      <Home data={films} />
+      <FilmList data={films} />
     </>
   );
 };

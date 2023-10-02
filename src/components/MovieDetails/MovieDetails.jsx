@@ -1,6 +1,3 @@
-import { useLocation } from 'react-router-dom';
-import { useRef } from 'react';
-
 import {
   WraperStyle,
   WraperTextStyle,
@@ -8,12 +5,9 @@ import {
   TitleTextStyle,
   TextStyle,
   ListStyle,
-  ButtonStyle,
 } from 'components/MovieDetails/MovieDetails.styled';
 
 const MovieDetails = ({ dataFilm }) => {
-  const location = useLocation();
-  const backLinkHref = useRef(location.state?.from ?? '/');
   const {
     genres,
     original_title,
@@ -33,17 +27,21 @@ const MovieDetails = ({ dataFilm }) => {
 
   return (
     <>
-      <ButtonStyle to={backLinkHref.current}>Go home</ButtonStyle>
       <WraperStyle>
-        <img
-          src={
-            poster_path
-              ? `${BASE_URL_IMG}${poster_path}`
-              : `${DEFAULT_IMAGE_URL}`
-          }
-          alt={original_title}
-          width="200"
-        />
+        {poster_path ? (
+          <img
+            src={`${BASE_URL_IMG}${poster_path}`}
+            alt={original_title}
+            width="200"
+          />
+        ) : (
+          <img
+            src={`${DEFAULT_IMAGE_URL}`}
+            alt={original_title}
+            width="200"
+            height="300"
+          />
+        )}
         <WraperTextStyle>
           <TitleStyle>
             {original_title} ({releaseYear})

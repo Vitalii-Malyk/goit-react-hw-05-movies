@@ -3,7 +3,11 @@ import { useParams } from 'react-router-dom';
 
 import { getMovieCredits } from 'services/apiGet';
 
-import { FilmListCast, TextStyle } from 'components/Cast/Cast.styled';
+import {
+  FilmListCast,
+  TextStyle,
+  WrapperImgStyle,
+} from 'components/Cast/Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -26,24 +30,32 @@ const Cast = () => {
 
   return (
     <>
-      <FilmListCast>
-        {cast.map(({ id, name, profile_path }) => {
-          return (
-            <li key={id}>
-              <img
-                src={
-                  profile_path
-                    ? `${BASE_URL_IMG}${profile_path}`
-                    : `${DEFAULT_IMAGE_URL}`
-                }
-                alt={name}
-                width={200}
-              />
-              <TextStyle>{name}</TextStyle>
-            </li>
-          );
-        })}
-      </FilmListCast>
+      {cast.length > 0 ? (
+        <FilmListCast>
+          {cast.map(({ id, name, profile_path }) => {
+            return (
+              <li key={id}>
+                {profile_path ? (
+                  <div width="200" height="300">
+                    <img
+                      src={`${BASE_URL_IMG}${profile_path}`}
+                      alt={name}
+                      width="200"
+                    />
+                  </div>
+                ) : (
+                  <WrapperImgStyle width="200" height="300">
+                    <img src={`${DEFAULT_IMAGE_URL}`} alt={name} width="200" />
+                  </WrapperImgStyle>
+                )}
+                <TextStyle>{name}</TextStyle>
+              </li>
+            );
+          })}
+        </FilmListCast>
+      ) : (
+        <p>We do not yet have information on the actors for this video.</p>
+      )}
     </>
   );
 };

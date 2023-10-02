@@ -4,14 +4,16 @@ import {
   StyleFilmItem,
   StyleFilmLink,
 } from 'components/FilmList/FilmList.styled';
+import { useLocation } from 'react-router-dom';
 
-const Home = ({ data }) => {
+const FilmList = ({ data }) => {
+  const location = useLocation();
   return (
     <StyleFilmList>
       {data.map(({ title, id }) => {
         return (
           <StyleFilmItem className="gallery-film" key={id}>
-            <StyleFilmLink to={`/movies/${id}`}>
+            <StyleFilmLink to={`/movies/${id}`} state={location}>
               <StyleFilmTitle>{title}</StyleFilmTitle>
             </StyleFilmLink>
           </StyleFilmItem>
@@ -21,4 +23,4 @@ const Home = ({ data }) => {
   );
 };
 
-export default Home;
+export default FilmList;

@@ -1,8 +1,8 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { useEffect, useCallback, useRef, useState } from 'react';
 
 import { searchMovies } from 'services/apiGet';
-import Home from 'components/FilmList/FilmList';
+import FilmList from 'components/FilmList/FilmList';
 
 import {
   SearchBtn,
@@ -17,6 +17,7 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
   const ref = useRef(query);
+  const location = useLocation();
 
   const handlerChange = ({ target: { value } }) => {
     setValue(value);
@@ -59,7 +60,7 @@ const Movies = () => {
       </SearchForm>
       {movies &&
         (movies.length > 1 ? (
-          <Home data={movies} />
+          <FilmList data={movies} state={location} />
         ) : (
           <p>Nothing was found for your request</p>
         ))}
