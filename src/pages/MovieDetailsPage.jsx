@@ -11,6 +11,7 @@ import MovieDetails from 'components/MovieDetails/MovieDetails.jsx';
 
 import { ButtonStyle } from 'pages/MovieDetailsPage.styled';
 
+
 import { getMovieDetails } from 'services/apiGet';
 
 const MovieDetailsPage = () => {

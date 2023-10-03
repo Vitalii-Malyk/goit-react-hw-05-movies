@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { getMovieCredits } from 'services/apiGet';
 
+import defaultPoster from 'components/img/no_image.jpeg';
+
 import {
   FilmListCast,
   TextStyle,
@@ -13,8 +15,6 @@ const Cast = () => {
   const { movieId } = useParams();
   const [cast, setcast] = useState([]);
   const BASE_URL_IMG = 'https://image.tmdb.org/t/p/w500';
-  const DEFAULT_IMAGE_URL =
-    'https://www.braasco.com//ASSETS/IMAGES/ITEMS/ZOOM/no_image.jpeg';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +45,7 @@ const Cast = () => {
                   </div>
                 ) : (
                   <WrapperImgStyle width="200" height="300">
-                    <img src={`${DEFAULT_IMAGE_URL}`} alt={name} width="200" />
+                    <img src={defaultPoster} alt={name} width="200" />
                   </WrapperImgStyle>
                 )}
                 <TextStyle>{name}</TextStyle>

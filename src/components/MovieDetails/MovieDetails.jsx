@@ -7,6 +7,8 @@ import {
   ListStyle,
 } from 'components/MovieDetails/MovieDetails.styled';
 
+import defaultPoster from 'components/img/no_image.jpeg';
+
 const MovieDetails = ({ dataFilm }) => {
   const {
     genres,
@@ -18,8 +20,7 @@ const MovieDetails = ({ dataFilm }) => {
   } = dataFilm;
   const releaseDate = new Date(release_date);
   const BASE_URL_IMG = 'https://image.tmdb.org/t/p/w500';
-  const DEFAULT_IMAGE_URL =
-    'https://www.braasco.com//ASSETS/IMAGES/ITEMS/ZOOM/no_image.jpeg';
+
   const releaseYear = Number.isNaN(releaseDate)
     ? 'Unknown'
     : releaseDate.getFullYear();
@@ -36,7 +37,7 @@ const MovieDetails = ({ dataFilm }) => {
           />
         ) : (
           <img
-            src={`${DEFAULT_IMAGE_URL}`}
+            src={defaultPoster}
             alt={original_title}
             width="200"
             height="300"
