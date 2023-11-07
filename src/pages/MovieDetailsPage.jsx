@@ -1,16 +1,9 @@
 import { useEffect, useState, Suspense, useRef } from 'react';
-import {
-  useParams,
-  Outlet,
-  NavLink,
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
+import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 
 import MovieDetails from 'components/MovieDetails/MovieDetails.jsx';
 
-import { ButtonStyle } from 'pages/MovieDetailsPage.styled';
-
+import { ButtonStyle, NavLinkStyle } from 'pages/MovieDetailsPage.styled';
 
 import { getMovieDetails } from 'services/apiGet';
 
@@ -45,10 +38,10 @@ const MovieDetailsPage = () => {
       {film && <MovieDetails dataFilm={film} />}
       <ul>
         <li>
-          <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
+          <NavLinkStyle to={`/movies/${movieId}/cast`}>Cast</NavLinkStyle>
         </li>
         <li>
-          <NavLink to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
+          <NavLinkStyle to={`/movies/${movieId}/reviews`}>Reviews</NavLinkStyle>
         </li>
       </ul>
       <Suspense fallback={<div>Loading...</div>}>

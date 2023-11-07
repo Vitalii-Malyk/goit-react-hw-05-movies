@@ -9,6 +9,7 @@ import {
   FilmListCast,
   TextStyle,
   WrapperImgStyle,
+  ImgStyle,
 } from 'components/Cast/Cast.styled';
 
 const Cast = () => {
@@ -37,15 +38,14 @@ const Cast = () => {
               <li key={id}>
                 {profile_path ? (
                   <div width="200" height="300">
-                    <img
+                    <ImgStyle
                       src={`${BASE_URL_IMG}${profile_path}`}
                       alt={name}
-                      width="200"
                     />
                   </div>
                 ) : (
                   <WrapperImgStyle width="200" height="300">
-                    <img src={defaultPoster} alt={name} width="200" />
+                    <ImgStyle src={defaultPoster} alt={name} />
                   </WrapperImgStyle>
                 )}
                 <TextStyle>{name}</TextStyle>
@@ -54,7 +54,9 @@ const Cast = () => {
           })}
         </FilmListCast>
       ) : (
-        <p>We do not yet have information on the actors for this video.</p>
+        <TextStyle>
+          We do not yet have information on the actors for this video.
+        </TextStyle>
       )}
     </>
   );

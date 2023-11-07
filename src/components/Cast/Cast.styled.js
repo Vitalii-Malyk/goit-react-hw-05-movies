@@ -19,3 +19,8 @@ export const WrapperImgStyle = styled.div`
   width: 200px;
   height: 300px;
 `;
+
+export const ImgStyle = styled.img`
+  width: 200px;
+  border-radius: 20px;
+`;

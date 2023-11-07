@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const ButtonStyle = styled.button`
   display: block;
@@ -10,6 +11,15 @@ export const ButtonStyle = styled.button`
   border-radius: 10px;
   text-decoration: none;
   background-color: white;
+  &:hover,
+  &:focus {
+    color: blueviolet;
+    border-color: blueviolet;
+  }
+`;
+
+export const NavLinkStyle = styled(NavLink)`
+  text-decoration: none;
   &:hover,
   &:focus {
     color: blueviolet;
