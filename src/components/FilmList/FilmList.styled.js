@@ -3,23 +3,20 @@ import { Link } from 'react-router-dom';
 
 export const StyleFilmList = styled('ul')(() => {
   return {
+    listStyle: 'none',
     display: 'flex',
-    flexDirection: 'column',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
     margin: '20px 0 0 0',
     padding: 0,
     gap: '15px',
+    justifyContent: 'center',
   };
 });
 
 export const StyleFilmItem = styled('li')(() => {
   return {
     width: 'fit-content',
-  };
-});
-
-export const StyleFilmTitle = styled('h4')(() => {
-  return {
-    margin: 0,
   };
 });
 

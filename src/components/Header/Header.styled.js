@@ -8,7 +8,7 @@ export const HeaderStyled = styled.header`
   gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #9f9f9f;
 
   > nav {
     display: flex;
@@ -18,7 +18,7 @@ export const HeaderStyled = styled.header`
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: black;
+  color: #9f9f9f;
   font-weight: 500;
 
   &.active {

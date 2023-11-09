@@ -7,14 +7,14 @@ export const SearchForm = styled.form`
 `;
 export const SearchContainer = styled.div`
   display: flex;
-  border: 1px solid black;
+  border: 1px solid #9f9f9f;
   border-radius: 100px;
   padding: 10px 15px;
 `;
 
 export const SearchInput = styled.input`
   border: 0;
-  color: black;
+  color: #9f9f9f;
   background-color: transparent;
   width: 200px;
   &:focus {
