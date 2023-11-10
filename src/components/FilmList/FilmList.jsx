@@ -33,7 +33,7 @@ const FilmList = ({ data }) => {
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="270"
+                      height="300"
                       image={`${BASE_URL_IMG}${poster_path}`}
                       alt={title}
                     />

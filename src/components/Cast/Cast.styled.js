@@ -12,6 +12,7 @@ export const TextStyle = styled.p`
   margin-top: 10px;
   margin: 0;
   text-align: center;
+  color: #9f9f9f;
 `;
 export const WrapperImgStyle = styled.div`
   display: flex;
