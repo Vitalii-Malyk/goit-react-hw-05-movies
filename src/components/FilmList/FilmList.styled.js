@@ -16,7 +16,7 @@ export const StyleFilmList = styled('ul')(() => {
 
 export const StyleFilmItem = styled('li')(() => {
   return {
-    width: 'fit-content',
+    width: '200px',
   };
 });
 
