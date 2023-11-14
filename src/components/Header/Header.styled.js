@@ -21,7 +21,10 @@ export const StyledNavLink = styled(NavLink)`
   color: #9f9f9f;
   font-weight: 500;
 
-  &.active {
-    color: orangered;
+  &:hover,
+  &:active,
+  &:focus {
+    color: blueviolet;
+    border-color: blueviolet;
   }
 `;

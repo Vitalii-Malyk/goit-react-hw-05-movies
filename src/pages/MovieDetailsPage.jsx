@@ -3,7 +3,11 @@ import { useParams, Outlet, useNavigate, useLocation } from 'react-router-dom';
 
 import MovieDetails from 'components/MovieDetails/MovieDetails.jsx';
 
-import { ButtonStyle, NavLinkStyle } from 'pages/MovieDetailsPage.styled';
+import {
+  ButtonStyle,
+  NavLinkStyle,
+  StyleList,
+} from 'pages/MovieDetailsPage.styled';
 
 import { getMovieDetails } from 'services/apiGet';
 
@@ -36,14 +40,14 @@ const MovieDetailsPage = () => {
     <>
       <ButtonStyle onClick={backLink}>Go back</ButtonStyle>
       {film && <MovieDetails dataFilm={film} />}
-      <ul>
+      <StyleList>
         <li>
           <NavLinkStyle to={`/movies/${movieId}/cast`}>Cast</NavLinkStyle>
         </li>
         <li>
           <NavLinkStyle to={`/movies/${movieId}/reviews`}>Reviews</NavLinkStyle>
         </li>
-      </ul>
+      </StyleList>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
